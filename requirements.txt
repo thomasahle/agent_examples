@@ -1,0 +1,33 @@
+# Core dependencies
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+matplotlib>=3.7.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# LangChain
+langchain>=0.0.267
+langchain-openai>=0.0.2
+langchain-core>=0.1.6
+
+# LlamaIndex
+llama-index-core>=0.9.8
+llama-index-llms-openai>=0.1.5
+
+# Semantic Kernel
+semantic-kernel>=0.4.0
+
+# AutoGen
+pyautogen>=0.2.3
+
+# SmolAgents
+smolagents>=0.0.3
+
+# DSPy
+dspy-ai>=2.0.7
+
+# OpenAI
+openai>=1.0.0
+
+# Anthropic (optional)
+anthropic>=0.5.0
