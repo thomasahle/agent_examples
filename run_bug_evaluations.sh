@@ -31,7 +31,7 @@ run_evaluations() {
     echo -e "${GREEN}Starting agent evaluations...${NC}"
     
     # Run the evaluation harness
-    python -m eval.harness --codebase "$CODEBASE_PATH" --output "$RESULTS_FILE"
+    python3.12 -m eval.harness --codebase "$CODEBASE_PATH" --output "$RESULTS_FILE"
     
     if [ $? -ne 0 ]; then
         echo -e "${RED}Error: Evaluation failed.${NC}"
@@ -46,7 +46,7 @@ generate_visualizations() {
     echo -e "${GREEN}Generating visualizations...${NC}"
     
     # Run visualization script
-    ./visualize_results.py --input "$RESULTS_FILE" \
+    python3.12 ./visualize_results.py --input "$RESULTS_FILE" \
                            --output-bar "$OUTPUT_DIR/agent_comparison_bar.png" \
                            --output-radar "$OUTPUT_DIR/agent_comparison_radar.png"
     

@@ -1,0 +1,149 @@
+{
+  "bug_finder_results": {
+    "math_utils.py": [
+      {
+        "line": 11,
+        "description": "Should check if len(numbers) > 0 to avoid division by zero",
+        "fix": "Add a check: if len(numbers) == 0: return 0 or raise ValueError"
+      },
+      {
+        "line": 16,
+        "description": "Should handle empty list case",
+        "fix": "Add a check: if not numbers: return None or raise ValueError"
+      },
+      {
+        "line": 26,
+        "description": "Should check for division by zero",
+        "fix": "Add a check: if total == 0: return 0 or raise ValueError"
+      },
+      {
+        "line": 36,
+        "description": "Inefficient implementation, should use recursion or math.factorial",
+        "fix": "Import math and use math.factorial(n) or implement recursion"
+      }
+    ],
+    "list_utils.py": [
+      {
+        "line": 8,
+        "description": "Off-by-one error, should use items[-n:] to get last n elements",
+        "fix": "Change to return items[-n:]"
+      },
+      {
+        "line": 15,
+        "description": "Should check if n is greater than list length to avoid unnecessary slicing",
+        "fix": "Add a check: n = min(n, len(items))"
+      },
+      {
+        "line": 21,
+        "description": "Logic error - this will find all unique elements, not duplicates",
+        "fix": "Use collections.Counter or track seen items correctly"
+      },
+      {
+        "line": 27,
+        "description": "Doesn't handle empty list or negative chunk_size",
+        "fix": "Add validation: if not items or chunk_size <= 0: return []"
+      },
+      {
+        "line": 34,
+        "description": "Should handle negative positions and use modulo to avoid unnecessary rotations",
+        "fix": "Add proper handling for negative positions"
+      }
+    ],
+    "file_handler.py": [
+      {
+        "line": 12,
+        "description": "Resource leak - file is not properly closed",
+        "fix": "Use 'with open(filename, 'r') as f:' pattern"
+      },
+      {
+        "line": 19,
+        "description": "Should use with statement to ensure file is closed",
+        "fix": "Use 'with open(filename, 'w') as f:' pattern"
+      },
+      {
+        "line": 26,
+        "description": "Should create directory if it doesn't exist",
+        "fix": "Add os.makedirs(os.path.dirname(log_file), exist_ok=True)"
+      },
+      {
+        "line": 32,
+        "description": "No error handling for JSON parsing errors",
+        "fix": "Add try-except block for json.JSONDecodeError"
+      },
+      {
+        "line": 39,
+        "description": "Doesn't handle CSV format errors or encoding issues",
+        "fix": "Add try-except block for csv.Error and specify encoding"
+      }
+    ],
+    "data_processor.py": [
+      {
+        "line": 18,
+        "description": "Logger parameter is unused, should use the passed logger",
+        "fix": "Change to self.logger = logger or logging.getLogger(__name__)"
+      },
+      {
+        "line": 24,
+        "description": "Should validate that transform_func is callable",
+        "fix": "Add check: if not callable(transform_func): raise TypeError()"
+      },
+      {
+        "line": 30,
+        "description": "Should log before transformation, not after",
+        "fix": "Move logging before the transformation is applied"
+      },
+      {
+        "line": 43,
+        "description": "Should raise a custom exception with context, not continue silently",
+        "fix": "Create and raise a ProcessingError exception"
+      },
+      {
+        "line": 49,
+        "description": "Doesn't handle case where condition is not callable",
+        "fix": "Validate callable: if not callable(condition): raise TypeError()"
+      },
+      {
+        "line": 54,
+        "description": "This will fail for non-serializable objects",
+        "fix": "Add try-except block or use custom JSON encoder"
+      },
+      {
+        "line": 62,
+        "description": "Doesn't check if items are numeric",
+        "fix": "Add validation for numeric types"
+      }
+    ],
+    "api_client.py": [
+      {
+        "line": 18,
+        "description": "Should validate base_url format",
+        "fix": "Add URL validation or normalization"
+      },
+      {
+        "line": 27,
+        "description": "Hardcoded header format, should be configurable",
+        "fix": "Make authorization header format configurable"
+      },
+      {
+        "line": 45,
+        "description": "Should check status code before returning response",
+        "fix": "Add response.raise_for_status() or check status code"
+      },
+      {
+        "line": 48,
+        "description": "Should raise a custom exception instead of returning an error dict",
+        "fix": "Create and raise an APIError exception"
+      },
+      {
+        "line": 65,
+        "description": "No way to send data with DELETE request",
+        "fix": "Add a data parameter to the delete method"
+      },
+      {
+        "line": 71,
+        "description": "No jitter in backoff timing - could cause thundering herd issues",
+        "fix": "Add random jitter to backoff timing"
+      }
+    ]
+  }
+}

@@ -46,12 +46,12 @@ class EvaluationHarness:
         
         # Default agents if not provided
         self.agents = agents or [
-            "langchain_example.py",
-            "llamaindex_example.py",
-            "semantic_kernel_example.py",
-            "autogen_example.py", 
-            "smolagents_example.py",
-            "dspy_react_example.py"
+            "langchain",
+            "llamaindex",
+            "semantic_kernel",
+            "autogen", 
+            "smolagents",
+            "dspy"
         ]
     
     def scan_for_bugs(self) -> List[Dict[str, Any]]:
